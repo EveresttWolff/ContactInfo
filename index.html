@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"/>
+  <title>ContactInfo</title>
+  <style>
+    :root {
+      --bg: #d7e8ff;
+      /* fundo clarinho */
+      --primary: #4f64dd;
+      /* azul principal */
+      --primary-700: #3e51c1;
+      --accent: #6ec1ff;
+      /* azul claro (botões/inputs) */
+      --text: #0b1320;
+      --muted: #4f64dd;
+      --white: #fff;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wrapper {
+      width: min(980px, 92vw);
+      text-align: center;
+      padding: 24px 16px 56px;
+    }
+
+    /*
+    .logo-circle{
+      width:min(280px, 60vw);
+      aspect-ratio:1/1;
+      margin:0 auto 16px;
+      border-radius:50%;
+      background: radial-gradient(120% 120% at 70% 30%, #8fd0ff 0%, #66b9ff 45%, #5aa0ff 100%);
+      border:4px solid #3b5ad2;
+      box-shadow: 0 10px 24px rgba(0,0,0,.08), inset 0 0 0 6px rgba(255,255,255,.15);
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+      position:relative;
+    }*/
+    .logo-circle img {
+      width: 40%;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .15));
+    }
+
+    h1 {
+      margin: 10px 0 6px;
+      font-size: clamp(26px, 4.2vw, 36px);
+      font-weight: 800;
+      letter-spacing: .2px;
+      color: #2a2f3a;
+    }
+
+    h1 .mark {
+      color: var(--white);
+      background: var(--primary);
+      padding: 2px 6px;
+      border-radius: 6px;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, .06);
+    }
+
+    .slogan {
+      margin: 2px 0 22px;
+      font-style: italic;
+      color: var(--primary);
+      font-size: clamp(14px, 2.6vw, 18px);
+    }
+
+    .headline {
+      margin: 10px 0 28px;
+      font-size: clamp(18px, 3.2vw, 24px);
+      font-weight: 800;
+    }
+
+    .actions {
+      display: grid;
+      place-items: center;
+      gap: 8px
+    }
+
+    input, textarea {
+      width: 100%; padding: 10px; margin: 6px 0;
+      border: 1px solid; border-radius: 8px;}
+
+    .btn {
+      appearance: none;
+      -webkit-appearance: none;
+      border: 1px solid #2f58c8;
+      padding: 14px 28px;
+      border-radius: 28px;
+      font-weight: 800;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      width: min(260px, 80vw);
+      background: linear-gradient(180deg, var(--accent), #49a8ff);
+      box-shadow: 0 6px 18px rgba(49, 120, 255, .25);
+      transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 26px rgba(49, 120, 255, .33);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+      filter: brightness(.97);
+    }
+
+    .or {
+      margin: 2px 0;
+      font-weight: 700;
+      color: #1b2130;
+    }
+
+    footer {
+      margin-top: 34px;
+      font-size: 12px;
+      color: #334155;
+      opacity: .9;
+    }
+
+    /* acessibilidade de foco */
+    :focus-visible {
+      outline: 3px solid #1e90ff;
+      outline-offset: 2px;
+      border-radius: 10px
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="logo-circle" aria-hidden="true">
+      <img src="/image/logo.png" alt="Logo ContactInfo" onerror="this.style.display='none'" />
+    </div>
+
+    <h1>Contact<span class="mark">Info</span></h1>
+    <p class="slogan">“Seus contatos em um só lugar”</p>
+    <p class="headline">Seja bem-vindo ao ContactInfo, seu site de gerenciamento de contatos!</p>
+
+    <div class="actions">
+      <a class="btn btn-primary" data-toggle="modal" href='#modal-id'>Cadastre-se</a>      
+      <div class="or">ou</div>
+      <a class="btn btn-primary" data-toggle="modal" href='#modal-id2'>Entre</a>      
+    </div>
+
+    <footer>
+      <div>© 2025 ContactInfo</div>
+    </footer>
+  </div>
+ 
+ <div class="modal fade" id="modal-id">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Cadastre-se</h4>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="form-control" placeholder="Nome de usuário" required>
+        <input type="text" class="form-control" placeholder="Nome completo" required>
+        <input type="email" class="form-control" placeholder="E-mail" required>
+        <input type="password" class="form-control" placeholder="Senha" required>
+      </div>
+      <div class="modal-footer">
+        <a href="contatos.html"class="btn btn-primary">Salvar</a>
+      </div>
+    </div>
+  </div>
+ </div>
+
+ <div class="modal fade" id="modal-id2">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Entrar</h4>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="form-control" placeholder="Usuário" required>
+        <input type="password" class="form-control" placeholder="Senha" required>
+      </div>
+      <div class="modal-footer">
+        <a href="contatos.html"class="btn btn-primary">Entrar</a>
+      </div>
+    </div>
+  </div>
+ </div>
+ 
+
+  <script>
+    // Pequena simulação para esta fase inicial do projeto.
+  //  const go = (to) => window.location.href = to;
+
+    //document.getElementById('btnEntrar').addEventListener('click', () => {
+      // cria uma "sessão" simples só para a navegação funcionar depois
+      //localStorage.setItem('ci_session_user', JSON.stringify({ nome: 'Convidado' }));
+      //go('contatos.html'); // Parte 2: listagem de contatos (vamos criar na próxima etapa)
+    //});
+
+    //document.getElementById('btnCadastro').addEventListener('click', () => {
+      // mais à frente poderemos ter uma tela de cadastro de usuário;
+      // por hora, leve para a mesma listagem para seguir o fluxo da apresentação
+      //go('contatos.html');
+    //});
+  </script>
+</body>
+
+</html>
