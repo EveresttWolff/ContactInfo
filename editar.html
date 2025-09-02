@@ -61,7 +61,7 @@
       border: 1px solid var(--white);
     }
 
-    main{padding:180px}
+    main{padding:70px}
     h2{margin:0 0 16px}
 
     .btn-primary {
@@ -96,25 +96,26 @@
 <body>
   <header>
     <div class="logo">
-      <a href="index.html"><img src="/image/logo.png" alt="Logo ContactInfo"></a>
+      <img src="/image/logo.png" alt="Logo ContactInfo">
       <span>ContactInfo</span>
     </div>
     <!--<input type="text" id="pesquisa" placeholder="🔍 Pesquisa" />-->
     <nav>
-      <a href="/contatos.html" id="listagem"style="text-decoration: none;">📋</a>
-      <a href="/contatos.html" id="novo"style="text-decoration: none;">➕</a>
+      <a href="/contatos.html" id="listagem">📋</a>
+      <a href="/contatos.html" id="novo">➕</a>
     </nav>
   </header>
 
   <main>
-    <h2>Novo contato:</h2>
+    <h2>Editar contato:</h2>
     <div class="contact-body">
         <input type="text" class="form-control" placeholder="Nome:" required>
-        <input type="tel" class="form-control" placeholder="Telefone: (xx) xxxxx-xxxx" required>
+        <input type="text" class="form-control" placeholder="Telefone:" required>
         <input type="email" class="form-control" placeholder="Email:" required>
-        <input type="date" class="form-control" placeholder="Aniversário:" required>
+        <input type="text" class="form-control" placeholder="Aniversário:" required>
+        <textarea name="observations" class="form-control" placeholder="Observações:"></textarea>
         <div class="contact-footer">
-        <a href="contatos.html"class="btn btn-primary">Salvar</a>
+        <a href="contatos.html"class="btn btn-primary">Atualizar contato</a>
       </div>
 
     </div>
